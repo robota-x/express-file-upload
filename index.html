@@ -2,6 +2,13 @@
 
 <h5>Use this form to send text to the server. it is encoded by default as 'application/x-www-form-urlencoded'</h5>
 <form action='/post-text' method="POST">
-  <input type="text" name="text" placeholder="put your text here"/>
-  <input type="submit" value="Submit Data" />
+  <input type="text" name="usertext" placeholder="put your text here"/>
+  <input type="submit" value="Submit Text" />
+</form>
+
+
+<h5>Use this form to send a file to the server. it is encoded 'multipart/formadata', which is needed to transfer files</h5>
+<form action='/post-file' method="POST">
+  <input type="file" name="userfile" />
+  <input type="submit" value="Submit File" />
 </form>
