@@ -8,6 +8,7 @@ var upload = multer({dest: 'uploads/'});
 var SERVER_PORT = 8000;
 
 var userText = 'No text has been sent, this is the default value';
+var userFile;
 
 app.use(bodyParser.urlencoded());
 
@@ -32,6 +33,15 @@ app.get('/user-text', function(req, res) {
 app.post('/post-file', upload.single('userfile'), function(req, res) {
   console.log('ping', req.file);
   res.status(200).sendFile(path.join(__dirname + '/success.html'));
+});
+
+app.get('/user-file', function(req,res) {
+  if(userfile) {
+    res.status(200).sendFile(path.join(__dirname + userFile));
+  } else {
+    res.status(418);
+  }
+
 });
 
 
