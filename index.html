@@ -7,8 +7,8 @@
 </form>
 
 
-<h5>Use this form to send a file to the server. it is encoded 'multipart/formadata', which is needed to transfer files</h5>
-<form action='/post-file' method="POST">
+<h5>Use this form to send a file to the server. you need to specify enctype='multipart/formadata', which is needed to transfer files</h5>
+<form action='/post-file' method="POST" enctype="multipart/form-data">
   <input type="file" name="userfile" />
   <input type="submit" value="Submit File" />
 </form>
