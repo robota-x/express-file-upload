@@ -1,7 +1,4 @@
-// note: the order is a bit wonky, usually you put imports first. Grouped up as logic groups to show what belongs where
-
 var path = require('path');
-
 
 // express setup
 var express = require('express');
