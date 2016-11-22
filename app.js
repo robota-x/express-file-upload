@@ -19,10 +19,8 @@ app.get('/', function(req, res) {
 
 //
 app.post('/post-text', function(req, res) {
-  res.status(200).sendFile(path.join(__dirname + '/success.html'));
-  console.log('received these parameters: ', req.body);
-  console.log(req.body.usertext + ' is also now saved in the backend as the "userText" var');
   userText = req.body.usertext;
+  res.status(200).sendFile(path.join(__dirname + '/success.html'));
 });
 
 app.get('/user-text', function(req, res) {
@@ -31,15 +29,16 @@ app.get('/user-text', function(req, res) {
 
 //
 app.post('/post-file', upload.single('userfile'), function(req, res) {
-  console.log('ping', req.file);
+  userFile = req.file.path;
   res.status(200).sendFile(path.join(__dirname + '/success.html'));
+
 });
 
 app.get('/user-file', function(req,res) {
-  if(userfile) {
-    res.status(200).sendFile(path.join(__dirname + userFile));
+  if(userFile) {
+    res.status(200).sendFile(path.join(__dirname + '/' + userFile));
   } else {
-    res.status(418);
+    res.sendStatus(404);
   }
 
 });
